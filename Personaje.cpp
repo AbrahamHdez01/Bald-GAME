@@ -2,18 +2,19 @@
 #include "character.h"
 #include "bald.h"
 
-Personaje::Personaje() : nivel(0), dinero(0), puntosHabilidad(0), estamina(0), mana(100), intelecto(0), fuerza(0), agilidad(0) {
+Personaje::Personaje() : nivel(0), dinero(0), puntosHabilidad(0), estamina(100), mana(100), intelecto(0), fuerza(0), agilidad(0) 
+{
 }
 
 Personaje::~Personaje() {
 }
 
-void Personaje::setNivel(int nivel) {
-    this->nivel = nivel;
+void Personaje::setNivel() {
+    nivel = 0;
 }
 
-void Personaje::setDinero(int dinero) {
-    this->dinero = dinero;
+void Personaje::setDinero() {
+    dinero = 0;
 }
 
 void Personaje::setPuntosHabilidad(int puntosHabilidad) {
@@ -44,23 +45,20 @@ void Personaje::setClase()
 {
      //(Guerrero, Arquero, Mago, Ladrón)
     int opcion;
-    opcion = true;
     cout << "\nSelecciona tu clase:" << endl;
-    cout << "1. Guerrero" << endl;
-    cout << "2. Arquero" << endl;
-    cout << "3. Mago" << endl;
-    cout << "4. Ladrón" << endl;
+    cout << "1.Guerrero" << endl;
+    cout << "2.Arquero" << endl;
+    cout << "3.Mago" << endl;
+    cout << "4.Ladrón" << endl;
     cout << " Elige tu clase: ";
     cin >> opcion;
 
     switch (opcion) {
     case 1:
         _clase = "Guerrero";
-        //inserar dibujo de guerrero
         break;
     case 2:
         _clase = "Arquero";
-        //insertar dibujo de arquero
         break;
     case 3:
         _clase = "Mago";
@@ -161,8 +159,6 @@ void Personaje::mostrarEquipamiento() const {
 
 void Personaje::guardarPartida(const string& nombreArchivo)
 {
-  
-
 }
 
 void Personaje::cargarPartida(const string& nombreArchivo)

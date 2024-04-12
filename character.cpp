@@ -102,14 +102,15 @@ void character::crearPersonaje() {
     persona.Equipamiento();
     persona.item();
 
-    cout << "\nResumen del personaje creado:" << std::endl;
-    cout << "Nombre: " << _nombre << std::endl;
+    cout << "\nResumen del personaje creado:" << endl;
+    cout << "Nombre: " << _nombre << endl;
     cout << "Raza: " << _raza << std::endl;
-    cout << "Género: " << _genero << std::endl;
-    cout << "Orientación: " << _orientacion << std::endl;
-    cout << "Clase: " << persona.getClase() << std::endl;
-    cout << "Arma Inicial: " << persona.getArmaInicial() << std::endl;
+    cout << "Género: " << _genero <<endl;
+    cout << "Orientación: " << _orientacion << endl;
+    cout << "Clase: " << persona.getClase() << endl;
+    cout << "Arma Inicial: " << persona.getArmaInicial() <<endl;
     persona.mostrarEquipamiento();
+
 }
 
 
