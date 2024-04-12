@@ -1,6 +1,7 @@
 #include "bald.h"
 #include "character.h"
 #include "Personaje.h"
+#include "Equipo.h"
 
 #include <limits> // Para limpiar el buffer de entrada
 
@@ -105,27 +106,26 @@ void bald::Iniciar() {
 }
 
 void bald::MenuJuego() {
-
     Personaje jugador;
-    int opcion = 0;
-    bool continuar = true; // Controla la continuidad del bucle del menú
+    Tienda tienda;
 
-    while (continuar) {
+    int opcion = 0; 
 
+    do {
         cout << "\n\nMenú de juego\n" << endl;
         cout << "1. Ver estadísticas" << endl;
         cout << "2. Comprar equipo" << endl;
         cout << "3. Gastar puntos de habilidad" << endl;
         cout << "4. Ir a una aventura" << endl;
         cout << "5. Guardar partida" << endl;
-        cout << "6. Cargar partida" << endl; 
-        cout << "7. Salir" << endl; 
+        cout << "6. Cargar partida" << endl;
+        cout << "7. Salir a menú " << endl;
         cout << "Opcion: ";
 
         while (!(cin >> opcion)) {
             cout << "Por favor, introduce un número válido." << endl;
-            cin.clear(); 
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Opcion: ";
         }
 
@@ -135,12 +135,15 @@ void bald::MenuJuego() {
             break;
         case 2:
             cout << "Comprando equipo..." << endl;
+            jugador.setClase();
+            tienda.mostrarInventario(jugador);
             break;
         case 3:
             cout << "Gastando puntos de habilidad..." << endl;
             break;
         case 4:
             cout << "Yendo a una aventura..." << endl;
+            
             break;
         case 5:
             jugador.guardarPartida("partida_guardada.txt");
@@ -150,19 +153,15 @@ void bald::MenuJuego() {
             jugador.cargarPartida("partida_guardada.txt");
             cout << "Partida cargada con éxito." << endl;
             break;
-        case 7: 
-            cout << "Saliendo al menú principal..." << endl;
-            continuar = false;
-            ImprimirMenu();
-            break;
-
-        default:
-            cout << "Opción no válida. Por favor, elige una opción entre 1 y 6." << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        case 7:
+            cout << "Saliendo al menú ..." << endl;
             Iniciar();
             break;
+        default:
+            cout << "Opción no válida. Por favor, elige una opción entre 1 y 7." << endl;
+            break;
         }
-    }
+    } while (opcion != 7); 
+
 }
 

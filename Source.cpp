@@ -4,6 +4,7 @@
 
 int main() {
     setlocale(LC_ALL, "");
+    srand(time(0));
 
     bald game;
     character miPersonaje;

@@ -1,6 +1,4 @@
-#ifndef PERSONAJE_H
-#define PERSONAJE_H
-
+#pragma once
 #include <string>
 #include <vector>
 #include <iostream>
@@ -10,6 +8,7 @@
 using namespace std;
 
 class Personaje {
+
 protected:
     int nivel;
     int dinero;
@@ -19,15 +18,17 @@ protected:
     int intelecto;
     int fuerza;
     int agilidad;
-
+    string _clase;
+    string armaInicial;
+    vector<string> equipamientoSeleccionado;
 
   
 
 public:
     Personaje();
     ~Personaje();
-    void setNivel(int nivel);
-    void setDinero(int dinero);
+    void setNivel();
+    void setDinero();
     void setPuntosHabilidad(int puntosHabilidad);
     void setEstamina(int estamina);
     void setMana(int mana);
@@ -39,14 +40,10 @@ public:
     void Equipamiento();
     void item();
     void mostrarEquipamiento() const;
-    string _clase;
-    string armaInicial;
-    vector<string> equipamientoSeleccionado;
-    string getClase() const { return _clase; }
-    string getArmaInicial() const { return armaInicial; }
+    string getClase()  { return _clase; } 
+    string getArmaInicial()  { return armaInicial; }
     const vector<string>& getEquipamientoSeleccionado() const { return equipamientoSeleccionado; }
     void guardarPartida(const string& nombreArchivo);
     void cargarPartida(const string& nombreArchivo);
 };
 
-#endif
